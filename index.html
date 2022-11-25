@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>C85</title>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<script src="fabric.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+<body>
+
+	<center>
+
+	<h1 id="titulo">MINECRAFT</h1>
+
+	<div id="headInfo">
+		<h3>Largura atual  = <span id='largura'>30</span></h3> <br>
+		<h3>Altura atual  = <span id='altura'>30</span></h3>
+	</div>
+
+	
+	</center>
+			<div id="sessao">
+			<canvas id="canvas" width="600" height="600"></canvas>
+			<ul>
+				<h3 id="titulo"><b>Lista de Comandos</b></h3> <br>
+				<li><h3><b>G</b> faz a <b>G</b>rama</h3> <br></li>
+				<li><h3><b>M</b> faz a <b>M</b>adeira</h3> <br></li>
+				<li><h3><b>T</b> faz o <b>T</b>ijolo</h3> <br></li>
+				<li><h3><b>N</b> faz a Terra do <b>N</b>ether </h3> <br></li>
+				<li><h3><b>P</b> faz a <b>P</b>edra</h3> <br></li>
+				<li><h3><b>L</b> faz a Pedra <b>L</b>uminosa</h3> <br></li>
+				<li><h3><b>V</b> faz o bloco <b>V</b>erde Claro</h3></li>
+				<li><h3><b>E</b> faz o bloco verde <b>E</b>scuro</h3></li>
+			</ul>
+			</div>
+
+
+
+	<script>
+		var canvas = new fabric.Canvas("canvas");
+		var ctx = canvas.getContext("2d");
+
+		var x = 10;
+		var y = 10;
+		var player = '';
+		
+		function mover(){
+			canvas.remove(player);
+			fabric.Image.fromURL("player.png", function (img){
+				player = img;
+				player.scaleToWidth(150);
+				player.scaleToHeight(140);
+				player.set({
+					top:y,
+					left:x
+				})
+				canvas.add(player);
+			})
+		}
+
+		//Adicionar as variáveis para guardar a largura e a altura
+
+
+		
+		//ensinar o computador como por qualquer imagem na tela
+
+
+		window.addEventListener("keydown", aperteiTecla);
+		function aperteiTecla(e){
+			var tecla = e.keyCode;
+			console.log("Apertei a tecla que tem o código: "+tecla);
+			if(tecla == 65){
+				x-=10;
+				mover();
+			}
+			if(tecla == 68){
+				x+=10;
+				mover();
+			}
+			if(tecla == 87){
+				y-=10;
+				mover();
+			}
+			if(tecla == 83){
+				y+=10;
+				mover();
+			}
+
+			//verifica se a tecla é igual a 77 (M)
+			if(tecla == 77){
+				console.log('m');
+				//se sim, põe a imagem de madeira
+				
+			}
+
+			
+
+		}
+
+	</script>
+</body>
+</html>
